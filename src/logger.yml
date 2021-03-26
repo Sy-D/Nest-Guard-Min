@@ -1,0 +1,23 @@
+logger:
+  level: info
+  transports:
+    - transport: console
+      level: debug
+      colorize: true
+      datePattern: YYYY-MM-DD h:mm:ss
+      label: user-service
+    - transport: file
+      name: info
+      filename: info.log
+      datePattern: YYYY-MM-DD h:mm:ss
+      label: user-service
+      # 100M
+      maxSize: 104857600
+      json: false
+      maxFiles: 10
+    - transport: dailyRotateFile
+      filename: info.log
+      datePattern: YYYY-MM-DD-HH
+      zippedArchive: true
+      maxSize: 20m
+      maxFiles: 14d
